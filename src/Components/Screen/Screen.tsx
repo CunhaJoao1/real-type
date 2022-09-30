@@ -30,21 +30,9 @@ const Div = styled.div`
        padding: 14rem 10%;
        padding-bottom: 0;
        position: relative;
-       /* @media screen and (max-width: 1024px){
-        padding: 14rem 5rem;
-        } */
-       /* .returnLogin{
-        position: absolute;
-        bottom: 2rem;
-        left: 0;
-        width:100%;
-        text-align: center;
-
-        span{
-            color: #2B6CB0;
-            cursor: pointer;
+       @media screen and (max-width: 768px){
+           padding-top: 7rem;
         }
-    } */
     }
     
 `
