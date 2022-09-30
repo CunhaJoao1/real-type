@@ -33,7 +33,8 @@ const Div = styled.div`
 `
 export function Login() {
     const onSubmit = (data: any)=>{
-        data.preventDefault()
+        data.preventDefault
+        /* console.log('ola mundo') */
     }
   return (
     <Div>
