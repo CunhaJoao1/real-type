@@ -41,10 +41,10 @@ type ScreenProps = {
     haveAccount: string,
 }
 export function Screen() {
-    const [nameScreen, setNameScreen] = useState('register')
+    const [nameScreen, setNameScreen] = useState(true)
 
-    const chooseScreen = (screenType: string)=>{
-        setNameScreen(screenType)
+    const chooseScreen = ()=>{
+        setNameScreen(!nameScreen)
     }
 
   return (
@@ -54,13 +54,10 @@ export function Screen() {
         <div className='screen'>
             <h4>Wellcome back</h4>
             <h2>Login to your account</h2>
+                     
             {
-                nameScreen == 'register' ?  <Register screenAccount={chooseScreen}/>: <Login/>                
+                nameScreen ?  <Register screenAccount={chooseScreen}/>: <Login/>                
             }
-            
-           
-
-
             
         </div>
         

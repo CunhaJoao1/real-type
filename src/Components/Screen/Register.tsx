@@ -9,7 +9,7 @@ import {Div} from "./RegisterStyle"
 
 
 type RegisterProps = {
-    screenAccount: (screenType: string) =>void,
+    screenAccount: () =>void,
 }
 export function Register(props: RegisterProps) {
     const {register, handleSubmit, formState: {errors}} = useForm<RegistrationFormData>({
@@ -44,7 +44,7 @@ export function Register(props: RegisterProps) {
         </form>
 
         <div className='returnLogin'>
-                <p> have an account?<span onClick={()=>props.screenAccount('login')}> Click Here</span> </p>
+                <p> have an account?<span onClick={()=>props.screenAccount()}> Click Here</span> </p>
         </div>
     </Div>
   )
