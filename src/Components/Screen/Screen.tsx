@@ -55,9 +55,9 @@ export function Screen() {
             <h4>Wellcome back</h4>
             <h2>Login to your account</h2>
                      
-            {
-                nameScreen ?  <Register screenAccount={chooseScreen}/>: <Login/>                
-            }
+            
+            <Register screenAccount={chooseScreen}/>      
+           
             
         </div>
         

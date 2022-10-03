@@ -6,6 +6,8 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import styled from 'styled-components'
 import {RegistrationFormData} from "../Validations/RegistrationFormData"
 import {Div} from "./RegisterStyle"
+import axios from "axios"
+import {api} from "../Api/api"
 
 
 type RegisterProps = {
@@ -16,8 +18,19 @@ export function Register(props: RegisterProps) {
         resolver: yupResolver(schema)
     });
 
-    const onSubmit = (data: any, value: any) =>{
+    const onSubmit = async (data: any, value: any) =>{
         value.preventDefault()
+        console.log(data)
+        try {
+            api.post('/register', {data}).then(res=>{
+                console.log(res)
+            }).then(err =>{
+                console.log(err)
+            })
+        } catch (error) {
+            console.error(error)
+        }
+        
     }
     const [nameScreen, setNameScreen] = useState('')
 
@@ -30,6 +43,10 @@ export function Register(props: RegisterProps) {
 
             <label>Email <input type="text" placeholder='example@email.com' {... register("email")}/>
                 <p className='error-message'>{errors.email ?.message}</p>
+             </label>
+
+             <label>Username <input type="text" placeholder='name123' {... register("username")}/>
+                <p className='error-message'>{errors.username ?.message}</p>
              </label>
 
             <label>Password <input type="password" {... register("password")}/> 
