@@ -1,7 +1,7 @@
 export interface RegistrationFormData{
     name: string;
     email: string;
-    username: string,
+    nickname: string,
     password: string;
     confirmPassword: string;
 }

@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { AuthContext } from '../Contexts/Auth/AuthContext'
+import { Navigate } from 'react-router-dom'
 
 
 const Div = styled.div`
@@ -32,23 +35,36 @@ const Div = styled.div`
     }
 `
 export function Login() {
-    const onSubmit = (data: any)=>{
-        data.preventDefault
-        /* console.log('ola mundo') */
+    const [user_email, setUser_email] = useState('')
+    const [user_password, setUser_password] = useState('')
+    const auth = useContext(AuthContext);
+
+    const handleLogin = async ()=>{
+       /*  value.preventDefault()       */  
+        if(user_email && user_password){
+            const isLogged = await auth.signIn(user_email, user_password)
+            if(isLogged){
+                <Navigate to={'/home'}/>
+            }
+            else{
+                alert("nao deu certo")
+            }
+        }
     }
+
   return (
     <Div>
-        <form onSubmit={()=>onSubmit}>
+        <form onSubmit={()=>handleLogin()}>
             <label>
                 Email
-                <input type="text" />
+                <input type="text" onChange={e=> setUser_email(e.target.value)}/>
             </label>
 
             <label>
                 Senha
-                <input type="password" />
+                <input type="password" onChange={e=> setUser_password(e.target.value)}/>
             </label>
-            <button>Login</button>
+           {/* <Link to={"/home"}> */} <button>Login </button>{/* </Link>  */}
         </form>
     </Div>
   )

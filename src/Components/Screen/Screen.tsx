@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components"
 import Image from "../../assets/image1.png"
 import { Login } from './Login'
@@ -47,7 +48,7 @@ export function Screen() {
         setNameScreen(!nameScreen)
     }
 
-  return (
+  return (   
     <Div>
         <div className='image'></div>
 
@@ -56,7 +57,8 @@ export function Screen() {
             <h2>Login to your account</h2>
                      
             
-            <Register screenAccount={chooseScreen}/>      
+            {/* <Register screenAccount={chooseScreen}/>       */}
+            <Login/>
            
             
         </div>
