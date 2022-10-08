@@ -31,7 +31,6 @@ export function Register(props: RegisterProps) {
         }
         
     }
-    const [nameScreen, setNameScreen] = useState('')
 
   return (
     <Div>

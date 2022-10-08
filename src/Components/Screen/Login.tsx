@@ -39,8 +39,8 @@ export function Login() {
     const [user_password, setUser_password] = useState('')
     const auth = useContext(AuthContext);
 
-    const handleLogin = async ()=>{
-       /*  value.preventDefault()       */  
+    const handleLogin = async (event: any)=>{
+        event.preventDefault()        
         if(user_email && user_password){
             const isLogged = await auth.signIn(user_email, user_password)
             if(isLogged){
@@ -54,7 +54,7 @@ export function Login() {
 
   return (
     <Div>
-        <form onSubmit={()=>handleLogin()}>
+        <form onSubmit={(event)=>handleLogin}>
             <label>
                 Email
                 <input type="text" onChange={e=> setUser_email(e.target.value)}/>
